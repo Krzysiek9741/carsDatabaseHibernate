@@ -19,7 +19,7 @@ public class OwnerDAO {
 
     private EntityTransaction tx = entityManager.getTransaction();
 
-    private VehicleDAO vehicleDAO;
+    private VehicleDAO vehicleDAO = new VehicleDAO();
 
     public void createOwner(Scanner scanner) {
         System.out.println("Enter owner's name:");
@@ -58,7 +58,9 @@ public class OwnerDAO {
         System.out.println("Owner's birth date: " + ownerDTO.getBirthDate());
     }
 
-    public void showAllOwnerCars(Long ownerId){
+    public void showAllOwnerCars(Scanner scanner){
+        System.out.println("Enter owner's id:");
+        Long ownerId = scanner.nextLong();
         OwnerDTO owner = findOwnerById(ownerId);
         List<VehicleDTO> vehicles = owner.getVehicles();
         int count = 0;
@@ -70,11 +72,17 @@ public class OwnerDAO {
         }
     }
 
-    public void addNewVehicle(Long ownerId, Long vehicleId){
+    public void addNewVehicle(Scanner scanner){
+        System.out.println("Enter owner's id:");
+        Long ownerId = scanner.nextLong();
+        System.out.println("Enter vehicle's id:");
+        Long vehicleId = scanner.nextLong();
         tx.begin();
         OwnerDTO owner = findOwnerById(ownerId);
-        owner.addVehicle(vehicleDAO.findVehicleById(vehicleId));
-        entityManager.persist(owner);
+        VehicleDTO veh = vehicleDAO.findVehicleById(vehicleId);
+        owner.addVehicle(veh);
+        entityManager.merge(owner);
+        entityManager.merge(veh);
         tx.commit();
     }
 

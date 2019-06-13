@@ -48,6 +48,7 @@ public class VehicleDTO {
     }
 
     public void setOwner(OwnerDTO owner) {
+        //OwnerDTO oldOwner = this.owner;
         this.owner = owner;
     }
 

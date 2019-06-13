@@ -20,9 +20,8 @@ public class VehicleDAO {
 
     private EntityTransaction tx = entityManager.getTransaction();
 
-    private VehicleModelDAO modelDAO;
 
-    public void createVehicle(Scanner scanner) {
+    public void createVehicle(Scanner scanner, VehicleModelDAO modelDAO) {
         System.out.println("Enter model's name:");
         String modelName = scanner.next();
         VehicleModelDTO model = modelDAO.findModelByName(modelName);

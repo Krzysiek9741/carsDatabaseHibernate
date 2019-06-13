@@ -60,4 +60,9 @@ public class VehicleModelDTO {
         vehicles.remove(vehicle);
         vehicle.setVehicle_model(null);
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
