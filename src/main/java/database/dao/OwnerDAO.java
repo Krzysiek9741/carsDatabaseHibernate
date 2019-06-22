@@ -86,6 +86,20 @@ public class OwnerDAO {
         tx.commit();
     }
 
+    public void removeCarFromOwner(Scanner scanner){
+        System.out.println("Enter owner's id:");
+        Long ownerId = scanner.nextLong();
+        System.out.println("Enter vehicle's id:");
+        Long vehicleId = scanner.nextLong();
+        tx.begin();
+        OwnerDTO owner = findOwnerById(ownerId);
+        VehicleDTO veh = vehicleDAO.findVehicleById(vehicleId);
+        owner.removeVehicle(veh);
+        entityManager.merge(owner);
+        entityManager.merge(veh);
+        tx.commit();
+    }
+
 
     public void closeConnection(){
         entityManager.close();

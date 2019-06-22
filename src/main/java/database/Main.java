@@ -50,9 +50,9 @@ public class Main {
                         ownerDAO.addNewVehicle(scanner);
                         break;
                     case 5:
-
+                        ownerDAO.removeCarFromOwner(scanner);
                     case 6:
-
+                        vehicleDAO.deleteVehicle(scanner);
                     case 7:
                         ownerDAO.showAllOwnerCars(scanner);
                         break;

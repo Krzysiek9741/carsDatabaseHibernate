@@ -37,13 +37,22 @@ public class VehicleDAO {
         tx.commit();
     }
 
-    public VehicleDTO findVehicleById(Long vehicleId){
+    public VehicleDTO findVehicleById(Long vehicleId) {
         VehicleDTO vehicle = entityManager.find(VehicleDTO.class, vehicleId);
 
         return vehicle;
     }
 
-    public void closeConnection(){
+    public void deleteVehicle(Scanner scanner) {
+        System.out.println("Enter vehicle's id:");
+        Long vehId = scanner.nextLong();
+        VehicleDTO vehicle = findVehicleById(vehId);
+        tx.begin();
+        entityManager.remove(vehicle);
+        tx.commit();
+    }
+
+    public void closeConnection() {
         entityManager.close();
         entityManagerFactory.close();
         System.exit(0);
