@@ -46,7 +46,7 @@ public class OwnerDAO {
         tx.commit();
     }
 
-    private OwnerDTO findOwnerById(Long id){
+    public OwnerDTO findOwnerById(Long id){
         OwnerDTO ownerDTO = entityManager.find(OwnerDTO.class, id);
         return ownerDTO;
     }

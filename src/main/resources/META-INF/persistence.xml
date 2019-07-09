@@ -6,7 +6,7 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/cars?serverTimezone=Europe/Warsaw"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.password" value="polibuda12"/>
+            <property name="javax.persistence.jdbc.password" value="Lamus321"/>
             <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <!--<property name="hibernate.hbm2ddl.auto" value="create"/>-->
